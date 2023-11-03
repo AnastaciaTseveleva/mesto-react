@@ -1,0 +1,8 @@
+.popup-avatar__save-button{
+    margin-left: 36px;
+}
+@media screen and (max-width: 768px) {
+    .popup-avatar__save-button{
+      margin-left: 22px;
+    }
+}

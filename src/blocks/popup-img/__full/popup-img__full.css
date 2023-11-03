@@ -1,0 +1,6 @@
+.popup-img__full{
+    object-fit: cover;
+    display: block;
+    max-width: 50vw;
+    max-height: 50vw;
+}
