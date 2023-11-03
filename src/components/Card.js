@@ -1,7 +1,7 @@
 import deleteImage from '../images/Trash.svg';
 import likeImage from '../images/like.svg';
 
-function Cards({ card, onCardClick}) {
+function Card({ card, onCardClick}) {
   const handleClick = () => {
     onCardClick(card);
   };
@@ -24,4 +24,4 @@ function Cards({ card, onCardClick}) {
   );
 }
 
-export default Cards;
+export default Card;
