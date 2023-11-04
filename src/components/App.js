@@ -10,7 +10,7 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState([null]);
+  const [selectedCard, setSelectedCard] = useState({});
 
   const handleEditProfileClick = () => {
     setEditProfilePopupOpen(true);
@@ -25,7 +25,7 @@ function App() {
   };
 
   const closeAllPopups = () => {
-    setSelectedCard([null]);
+    setSelectedCard({});
     setEditAvatarPopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditProfilePopupOpen(false);
@@ -66,7 +66,6 @@ function App() {
         <input className="popup__input popup-avatar__input popup__input_link_avatar" type="url" id="avatar-input" name="avatar" placeholder="Ссылка на картинку"  required/>
         <span className='popup__input-error avatar-input-error' id="avatar-error">gf</span>
       </PopupWithForm>
-      
     </div>
   );
 }

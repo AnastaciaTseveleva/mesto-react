@@ -1,5 +1,4 @@
 function ImagePopup({ card, onClose}){
-   console.log(card)
     return(
         <div className={`popup popup-img ${card.link ? 'popup_opened' : ''}`}>
             <div className="popup-img__container">
