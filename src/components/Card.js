@@ -11,7 +11,7 @@ function Card({ card, onCardClick}) {
           <button type="button" className="element__trash-button">
             <img className="element__trash-img" src={deleteImage} alt="Корзина" />
           </button>
-          <img className="element__img" src={card.link} alt="" onClick={handleClick}/>
+          <img className="element__img" src={card.link} alt={card.name} onClick={handleClick}/>
           <div className="element__container">
             <h2 className="element__text">{card.name}</h2>
             <button type="button" className="element__like-button">

@@ -7,6 +7,5 @@
 }
 .profile__avatar:hover {
     opacity: 60%;
-    background-image: url(../../../images/pencil.svg);
 }
 

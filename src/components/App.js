@@ -10,13 +10,7 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [isImagePopupOpen, setImagePopupOpen] = useState(false);
-
-  const handleCardClick = (card) => {
-    setSelectedCard(card);
-    setImagePopupOpen(true);
-  };
+  const [selectedCard, setSelectedCard] = useState([null]);
 
   const handleEditProfileClick = () => {
     setEditProfilePopupOpen(true);
@@ -30,6 +24,13 @@ function App() {
     setEditAvatarPopupOpen(true);
   };
 
+  const closeAllPopups = () => {
+    setSelectedCard([null]);
+    setEditAvatarPopupOpen(false);
+    setAddPlacePopupOpen(false);
+    setEditProfilePopupOpen(false);
+  }
+
   return (
     <div className="App"> 
       <Header />
@@ -37,14 +38,12 @@ function App() {
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
-        onCardClick={handleCardClick}
+        onCardClick={setSelectedCard}
       />
       <Footer />
-      {selectedCard && (
-        <ImagePopup card={selectedCard} onClose={() => setImagePopupOpen(false)} isOpen={isImagePopupOpen}/>
-      )}
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
       {/* Редактироваь профиль */}
-      <PopupWithForm title="Редактировать профиль" name="edit" isOpen={isEditProfilePopupOpen} onClose={() => setEditProfilePopupOpen(false)}>
+      <PopupWithForm title="Редактировать профиль" name="edit" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
         <input className="popup__input popup__input_name_edit" id="name-input" type="text" name="name" required minLength="2" placeholder="Имя"/>
         <span className='popup__input-error popup__input-error_edit name-input-error' id='name-error'></span>
         <input className="popup__input popup__input_status_edit" id="status-input" type="text" name="status" required minLength="2" placeholder="О себе"/>
@@ -52,7 +51,7 @@ function App() {
       </PopupWithForm>
 
       {/* Добавить место */}
-      <PopupWithForm title="Новое место" name="add" isOpen={isAddPlacePopupOpen} onClose={() => setAddPlacePopupOpen(false)}>
+      <PopupWithForm title="Новое место" name="add" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
         <input className="popup__input popup__input_name_add" id="caption-input" type="text" name="caption" placeholder="Название"  required minLength="2"/>
         <span className='popup__input-error caption-input-error' id='caption-error'>f</span>
         <input className="popup__input popup__input_link_add" type="url" id="link-input" name="link" placeholder="Ссылка на картинку"  required/>
@@ -63,7 +62,7 @@ function App() {
       <PopupWithForm title="Вы уверенны?" name="delete"></PopupWithForm>
 
       {/* Изменить аватарку */}
-      <PopupWithForm title="Обновить аватар" name="avatar" isOpen={isEditAvatarPopupOpen} onClose={() => setEditAvatarPopupOpen(false)}>
+      <PopupWithForm title="Обновить аватар" name="avatar" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
         <input className="popup__input popup-avatar__input popup__input_link_avatar" type="url" id="avatar-input" name="avatar" placeholder="Ссылка на картинку"  required/>
         <span className='popup__input-error avatar-input-error' id="avatar-error">gf</span>
       </PopupWithForm>

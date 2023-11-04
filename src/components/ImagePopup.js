@@ -1,8 +1,9 @@
-function ImagePopup({ card, onClose, isOpen  }){
+function ImagePopup({ card, onClose}){
+   console.log(card)
     return(
-        <div className={`popup-img ${isOpen ? 'popup-img_opened' : ''}`}>
+        <div className={`popup popup-img ${card.link ? 'popup_opened' : ''}`}>
             <div className="popup-img__container">
-                <button className="popup-img__close-button popup__close-button" type="button" onClick={isOpen ? onClose : null}></button>
+                <button className=" popup__close-button" onClick={onClose}></button>
                 <figure className="popup-img__figure">
                     <img className="popup-img__full" src={card.link} alt={card.name}/>
                     <figcaption className="popup-img__text">{card.name}</figcaption>
