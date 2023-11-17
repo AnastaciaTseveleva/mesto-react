@@ -35,7 +35,7 @@ class Api{
       .then(res => this._getResponseData(res))
     }
     // Метод для добавления новой карточки
-    addCard({ name, link}) {
+    addNewCard( name, link) {
       return fetch(`${this._url}/cards`, {
         method: 'POST',
         headers: this._headers,
