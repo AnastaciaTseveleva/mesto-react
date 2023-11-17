@@ -9,7 +9,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, isOpen]);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -42,7 +42,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         id="name-input"
         type="text"
         name="name"
-        value={name}
+        value={name || ""}
         onChange={handleNameChange}
         required
         minLength="2"
@@ -57,7 +57,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         id="status-input"
         type="text"
         name="about"
-        value={description}
+        value={description || ""}
         onChange={handleDescriptionChange}
         required
         minLength="2"

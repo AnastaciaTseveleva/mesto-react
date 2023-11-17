@@ -30,7 +30,6 @@ function Card({
   };
 
   return (
-    <div>
       <article className="element">
         {isOwn && (
           <button type="button" className="element__trash-button">
@@ -61,7 +60,6 @@ function Card({
           </button>
         </div>
       </article>
-    </div>
   );
 }
 
